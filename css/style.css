@@ -392,29 +392,44 @@ header {
 
 .portfolio {
     display: grid;
+    justify-items: center;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
 .portfolio__item {
-    background: var(--clr-accent);
     overflow: hidden;
+    position: relative;
+    padding: 20px;
 }
 
 .portfolio__img {
+    border-radius: 25px;
     transition: 
         transform 750ms cubic-bezier(.5, 0, .5, 1),
         opacity 250ms linear;
 }
 
-.portfolio__item:focus {
+.portfolio_title {
+    color: white;
+    position: absolute;
+    top: 45%;
+    left: 25%;
+    right: 25%;
+    text-align: center;
+    opacity: 0;
+}
+
+.portfolio__item:hover {
     position: relative;
     z-index: 2;
 }
 
-.portfolio__img:hover,
-.portfolio__item:focus .portfolio__img {
-    transform: scale(1.2);
+.portfolio__item:hover .portfolio__img {
     opacity: .5;
+}
+
+.portfolio__item:hover .portfolio_title {
+    opacity: 1;
 }
 
 
